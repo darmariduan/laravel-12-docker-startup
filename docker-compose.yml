@@ -1,12 +1,13 @@
 services:
     app:
-        build:
-            context: .
-            dockerfile: .docker/php/Dockerfile
-            target: prod
-            args:
-                WWWUSER: ${WWWUSER}
-                WWWGROUP: ${WWWGROUP}
+        # build:
+        #     context: .
+        #     dockerfile: .docker/php/Dockerfile
+        #     target: prod
+        #     args:
+        #         WWWUSER: ${WWWUSER}
+        #         WWWGROUP: ${WWWGROUP}
+        image: darmariduan/laravel-app:latest
         restart: always
         container_name: l12-app
         working_dir: /var/www
@@ -59,6 +60,7 @@ services:
 volumes:
     pg_data:
     redis_data:
+
 
 networks:
     laravel-12-network:
